@@ -31,7 +31,9 @@ int execute(char **cmd, char *filename)
 		if (execve(cmd[0], cmd, environ) == -1)
 		{
 			perror(filename);
-			free_memory_pp(cmd);																						exit(EXIT_FAILURE);																					}
+			free_memory_pp(cmd);
+
+			exit(EXIT_FAILURE);																					}
 	}
 	else
 	{
