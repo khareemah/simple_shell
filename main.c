@@ -1,17 +1,22 @@
 #include "main.h"
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 int main(void)
 {
-	char *args[] = {enter_command(), NULL};
+	char *command = NULL;
+	char **args = NULL;
 
-	//args[0] = enter_command();
-
-	if(execve(args[0], args, NULL) < 0)
+	while(1)
 	{
-		perror("./hsh");
-		//exit(EXIT_SUCCESS);
+		command = enter_command();
+		args = to_args(command);
+		
+		if(execve(args[0], args, NULL) < 0)
+		{
+			perror("./hsh");
+		}		
 	}
 	return (0);
 }

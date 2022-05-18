@@ -10,5 +10,6 @@ char *enter_command(void)
 	write(1, "c_is_fun: ", 11);
 	n_bytes = getline(&buffer, &buffer_size, stdin);
 	buffer[n_bytes - 1] = '\0';
+
 	return (buffer);
 }
