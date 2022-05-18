@@ -31,16 +31,16 @@ int main(int argc __attribute__((unused)), char *argv[])
 
 		tokens = parse_input(line);
 		if (!tokens || !tokens[0])
-		continue;
-	builtin = check_builtins(tokens);
-	if (builtin)
-	{
-		status = builtin(tokens, status, argv[0]);
-		free_memory_pp(tokens);
-		continue;
-	}
-	else
-		status = execute(tokens, argv[0]);
+			continue;
+		builtin = check_builtins(tokens);
+		if (builtin)
+		{
+			status = builtin(tokens, status, argv[0]);
+			free_memory_pp(tokens);
+			continue;
+		}
+			else
+			status = execute(tokens, argv[0]);
 		free_memory_pp(tokens);
 	}
 	return (0);

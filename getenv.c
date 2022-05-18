@@ -16,7 +16,7 @@ char *_getenv(const char *name)
 		{
 			if (environ[i][j] != *name || (environ[i][j] == '='))
 				break;
-				j++, name++;
+			j++, name++;
 		}
 
 		if (environ[i][j] == '=' && !*name)
