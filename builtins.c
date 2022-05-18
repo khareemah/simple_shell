@@ -42,8 +42,8 @@ int (*check_builtins(char **cmd))(char **, int, char *)
  * env_cmd - builtin implementation of env command
  * @cmd: Unused
  * @status: the status code
- * 
  * Return: Always 0
+ * @filename: argument
  */
 int env_cmd(char **cmd, int status, char *filename)
 {
@@ -56,7 +56,7 @@ int env_cmd(char **cmd, int status, char *filename)
 	for (i = 0; environ[i]; i++)
 	{
 		print(environ[i]);
-		_putchar('\n');	
+		_putchar('\n');
 	}
 		return (0);
 }
@@ -65,9 +65,9 @@ int env_cmd(char **cmd, int status, char *filename)
  * exit_cmd - builtin Implementation of exit command
  * @cmd: an array of given command and its arguments
  * @status: the status code
- * 
  * Return: exit with the status code given by user, or
- *  previous execution status code
+ * previous execution status code
+ * @filename: argument
  */
 int exit_cmd(char **cmd, int status, char *filename)
 {
@@ -85,7 +85,9 @@ int exit_cmd(char **cmd, int status, char *filename)
 		{
 			print(filename);
 			print(": ");
-			print(cmd[0]);																							print(": ");																							print("Illegal number: ");
+			print(cmd[0]);
+			print(": ");
+			print("Illegal number: ");
 			print(cmd[1]);
 			_putchar('\n');
 			return (1);
